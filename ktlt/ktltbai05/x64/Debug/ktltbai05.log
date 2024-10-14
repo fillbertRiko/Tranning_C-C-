@@ -1,0 +1,4 @@
+﻿  ktltbai05.cpp
+E:\C++\ktltbai05\ktltbai05.cpp(57,29): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+E:\C++\ktltbai05\ktltbai05.cpp(58,35): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+  ktltbai05.vcxproj -> E:\C++\ktltbai05\x64\Debug\ktltbai05.exe

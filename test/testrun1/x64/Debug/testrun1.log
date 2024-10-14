@@ -1,0 +1,3 @@
+﻿  testrun1.cpp
+E:\C++\testrun1\testrun1.cpp(10,1): warning C4326: return type of 'main' should be 'int' instead of 'void'
+  testrun1.vcxproj -> E:\C++\testrun1\x64\Debug\testrun1.exe

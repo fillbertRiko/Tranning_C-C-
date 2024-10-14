@@ -1,0 +1,22 @@
+﻿  TinhTongDaySoVaTBC.cpp
+E:\C++\TinhTongDaySoVaTBC\TinhTongDaySoVaTBC.cpp(8,12): warning C4566: character represented by universal-character-name '\u1EAD' cannot be represented in the current code page (1258)
+E:\C++\TinhTongDaySoVaTBC\TinhTongDaySoVaTBC.cpp(8,12): warning C4566: character represented by universal-character-name '\u1ED1' cannot be represented in the current code page (1258)
+E:\C++\TinhTongDaySoVaTBC\TinhTongDaySoVaTBC.cpp(8,12): warning C4566: character represented by universal-character-name '\u1EE3' cannot be represented in the current code page (1258)
+E:\C++\TinhTongDaySoVaTBC\TinhTongDaySoVaTBC.cpp(8,12): warning C4566: character represented by universal-character-name '\u00E3' cannot be represented in the current code page (1258)
+E:\C++\TinhTongDaySoVaTBC\TinhTongDaySoVaTBC.cpp(12,12): warning C4566: character represented by universal-character-name '\u1EAD' cannot be represented in the current code page (1258)
+E:\C++\TinhTongDaySoVaTBC\TinhTongDaySoVaTBC.cpp(12,12): warning C4566: character represented by universal-character-name '\u1ED1' cannot be represented in the current code page (1258)
+E:\C++\TinhTongDaySoVaTBC\TinhTongDaySoVaTBC.cpp(12,12): warning C4566: character represented by universal-character-name '\u00E3' cannot be represented in the current code page (1258)
+E:\C++\TinhTongDaySoVaTBC\TinhTongDaySoVaTBC.cpp(15,16): warning C4566: character represented by universal-character-name '\u1EAD' cannot be represented in the current code page (1258)
+E:\C++\TinhTongDaySoVaTBC\TinhTongDaySoVaTBC.cpp(15,16): warning C4566: character represented by universal-character-name '\u1ED1' cannot be represented in the current code page (1258)
+E:\C++\TinhTongDaySoVaTBC\TinhTongDaySoVaTBC.cpp(15,16): warning C4566: character represented by universal-character-name '\u1EE9' cannot be represented in the current code page (1258)
+E:\C++\TinhTongDaySoVaTBC\TinhTongDaySoVaTBC.cpp(24,12): warning C4566: character represented by universal-character-name '\u1ED5' cannot be represented in the current code page (1258)
+E:\C++\TinhTongDaySoVaTBC\TinhTongDaySoVaTBC.cpp(24,12): warning C4566: character represented by universal-character-name '\u1EE7' cannot be represented in the current code page (1258)
+E:\C++\TinhTongDaySoVaTBC\TinhTongDaySoVaTBC.cpp(24,12): warning C4566: character represented by universal-character-name '\u00E3' cannot be represented in the current code page (1258)
+E:\C++\TinhTongDaySoVaTBC\TinhTongDaySoVaTBC.cpp(24,12): warning C4566: character represented by universal-character-name '\u1ED1' cannot be represented in the current code page (1258)
+E:\C++\TinhTongDaySoVaTBC\TinhTongDaySoVaTBC.cpp(25,12): warning C4566: character represented by universal-character-name '\u00EC' cannot be represented in the current code page (1258)
+E:\C++\TinhTongDaySoVaTBC\TinhTongDaySoVaTBC.cpp(25,12): warning C4566: character represented by universal-character-name '\u1ED9' cannot be represented in the current code page (1258)
+E:\C++\TinhTongDaySoVaTBC\TinhTongDaySoVaTBC.cpp(25,12): warning C4566: character represented by universal-character-name '\u1EE7' cannot be represented in the current code page (1258)
+E:\C++\TinhTongDaySoVaTBC\TinhTongDaySoVaTBC.cpp(25,12): warning C4566: character represented by universal-character-name '\u00E3' cannot be represented in the current code page (1258)
+E:\C++\TinhTongDaySoVaTBC\TinhTongDaySoVaTBC.cpp(25,12): warning C4566: character represented by universal-character-name '\u1ED1' cannot be represented in the current code page (1258)
+E:\C++\TinhTongDaySoVaTBC\TinhTongDaySoVaTBC.cpp(9,5): error C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+E:\C++\TinhTongDaySoVaTBC\TinhTongDaySoVaTBC.cpp(16,9): error C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
