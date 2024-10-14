@@ -1,13 +1,32 @@
 {
     "version": "0.2.0",
     "configurations": [
-        
+        {
+            "name": "(gdb) Attach",
+            "type": "cppdbg",
+            "request": "attach",
+            "program": "enter program name, for example ${workspaceFolder}/a.exe",
+            "MIMode": "gdb",
+            "miDebuggerPath": "C:/MinGW/bin/gdb.exe",  // Đường dẫn tới gdb trong MinGW
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                },
+                {
+                    "description": "Set Disassembly Flavor to Intel",
+                    "text": "-gdb-set disassembly-flavor intel",
+                    "ignoreFailures": true
+                }
+            ]
+        },
 
         {
-            "name": "C/C++: g++ build and debug active file",
+            "name": "C/C++: g++ build and debug active file (MinGW)",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${fileDirname}/${fileBasenameNoExtension}",   // Đường dẫn tới tệp thực thi
+            "program": "${fileDirname}/${fileBasenameNoExtension}.exe",  // Đường dẫn tới tệp thực thi (Windows)
             "args": [],
             "stopAtEntry": false,
             "cwd": "${fileDirname}",
@@ -21,8 +40,8 @@
                     "ignoreFailures": true
                 }
             ],
-            "preLaunchTask": "C/C++: g++ build active file",
-            "miDebuggerPath": "/usr/bin/gdb"
+            "preLaunchTask": "C/C++: g++ build active file",  // Task trước khi khởi chạy chương trình
+            "miDebuggerPath": "C:/MinGW/bin/gdb.exe"  // Đường dẫn tới gdb trong MinGW
         }
     ]
 }
