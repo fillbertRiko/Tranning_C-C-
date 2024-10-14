@@ -1,0 +1,8 @@
+﻿  DuaXauKyTuSangHeHex.cpp
+E:\C++\DuaXauKyTuSangHeHex\DuaXauKyTuSangHeHex.cpp(10,12): warning C4566: character represented by universal-character-name '\u1EAD' cannot be represented in the current code page (1258)
+E:\C++\DuaXauKyTuSangHeHex\DuaXauKyTuSangHeHex.cpp(10,12): warning C4566: character represented by universal-character-name '\u1ED1' cannot be represented in the current code page (1258)
+E:\C++\DuaXauKyTuSangHeHex\DuaXauKyTuSangHeHex.cpp(24,12): warning C4566: character represented by universal-character-name '\u1ED1' cannot be represented in the current code page (1258)
+E:\C++\DuaXauKyTuSangHeHex\DuaXauKyTuSangHeHex.cpp(24,12): warning C4566: character represented by universal-character-name '\u1EAD' cannot be represented in the current code page (1258)
+E:\C++\DuaXauKyTuSangHeHex\DuaXauKyTuSangHeHex.cpp(24,12): warning C4566: character represented by universal-character-name '\u1EE5' cannot be represented in the current code page (1258)
+E:\C++\DuaXauKyTuSangHeHex\DuaXauKyTuSangHeHex.cpp(24,12): warning C4566: character represented by universal-character-name '\u1EE9' cannot be represented in the current code page (1258)
+  DuaXauKyTuSangHeHex.vcxproj -> E:\C++\DuaXauKyTuSangHeHex\x64\Debug\DuaXauKyTuSangHeHex.exe

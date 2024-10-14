@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1718293628 source:/media/duonghuy/New Volume/C++/codeBlock/ChuongTrinhTinhTrungBinhCongDaySo/main.c
+	<stdio.h>
+	<stdlib.h>
+

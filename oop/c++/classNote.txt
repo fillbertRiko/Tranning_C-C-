@@ -1,0 +1,205 @@
+Chắc chắn rồi! Bây giờ chúng ta sẽ đi sâu vào cấu trúc của **class** trong C++ và giải thích từng dòng quan trọng. Đây là khái niệm cơ bản của lập trình hướng đối tượng, và hiểu rõ từng phần trong cấu trúc của class sẽ giúp bạn tự tin hơn khi làm việc với C++.
+
+### **Cấu trúc tổng quát của một class trong C++**
+
+```cpp
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+class Student {
+private:          // 1. Phần private
+    string name;  // Thuộc tính name (private)
+    int age;      // Thuộc tính age (private)
+
+public:           // 2. Phần public
+    // 3. Constructor (Hàm khởi tạo)
+    Student(string studentName, int studentAge) {
+        name = studentName;  // Gán giá trị cho thuộc tính name
+        age = studentAge;    // Gán giá trị cho thuộc tính age
+    }
+
+    // 4. Phương thức public - getter cho thuộc tính name
+    string getName() const {
+        return name;
+    }
+
+    // 5. Phương thức public - setter cho thuộc tính name
+    void setName(string newName) {
+        name = newName;
+    }
+
+    // 6. Phương thức public - in thông tin sinh viên
+    void displayInfo() const {
+        cout << "Tên: " << name << ", Tuổi: " << age << endl;
+    }
+};
+
+// 7. Chương trình chính
+int main() {
+    // Tạo đối tượng Student
+    Student student1("John Doe", 20);
+    
+    // In thông tin ban đầu của đối tượng
+    student1.displayInfo();
+    
+    // Cập nhật tên của đối tượng
+    student1.setName("Jane Smith");
+    
+    // In thông tin sau khi cập nhật
+    student1.displayInfo();
+
+    return 0;
+}
+```
+
+### **Phân tích chi tiết từng phần của class**
+
+---
+
+#### **1. `private:` - Phần private**
+- **Giải thích**: Đây là phần dữ liệu của class mà chỉ có thể được truy cập từ bên trong class. Mọi thuộc tính được khai báo `private` sẽ không thể truy cập trực tiếp từ bên ngoài.
+- **Mục đích**: Bảo vệ dữ liệu, ngăn không cho người dùng của class thay đổi hoặc truy cập trực tiếp vào dữ liệu mà không qua các phương thức kiểm soát (getter, setter).
+
+```cpp
+string name;  // Thuộc tính name của sinh viên
+int age;      // Thuộc tính age của sinh viên
+```
+
+- **Thuộc tính `name`**: Dùng để lưu trữ tên của sinh viên.
+- **Thuộc tính `age`**: Lưu trữ tuổi của sinh viên.
+
+---
+
+#### **2. `public:` - Phần public**
+- **Giải thích**: Đây là nơi bạn khai báo các phương thức mà người dùng class có thể truy cập từ bên ngoài. Tất cả những gì được khai báo `public` sẽ có thể truy cập trực tiếp.
+
+---
+
+#### **3. Constructor (Hàm khởi tạo)**
+```cpp
+Student(string studentName, int studentAge) {
+    name = studentName;  // Gán giá trị cho thuộc tính name
+    age = studentAge;    // Gán giá trị cho thuộc tính age
+}
+```
+
+- **Giải thích**: Constructor là một loại phương thức đặc biệt, được gọi tự động khi một đối tượng của class được tạo ra. Nó giúp bạn **khởi tạo** đối tượng với các giá trị ban đầu.
+- **Mục đích**: Đặt giá trị ban đầu cho các thuộc tính của đối tượng khi nó được tạo ra.
+  - Ở đây, khi tạo một đối tượng `Student`, chúng ta truyền vào tên và tuổi của sinh viên, sau đó các giá trị này được gán cho thuộc tính `name` và `age`.
+
+**Ví dụ trong chương trình chính**:
+
+```cpp
+Student student1("John Doe", 20);
+```
+
+- **Giải thích**: Đây là cách bạn tạo một đối tượng `Student` với tên "John Doe" và tuổi 20. Khi bạn tạo đối tượng `student1`, constructor sẽ được gọi tự động và gán giá trị cho `name` và `age`.
+
+---
+
+#### **4. Phương thức getter cho thuộc tính `name`**
+
+```cpp
+string getName() const {
+    return name;
+}
+```
+
+- **Giải thích**: Đây là **getter** - một phương thức công khai cho phép người dùng truy cập vào thuộc tính `name`. Vì `name` được khai báo `private`, người dùng không thể truy cập trực tiếp vào nó. Thay vào đó, họ phải gọi phương thức này để lấy giá trị.
+- **Mục đích**: Bảo vệ dữ liệu nhưng vẫn cho phép người dùng truy cập giá trị thông qua một cổng bảo vệ (getter).
+- **`const`**: Được thêm vào cuối hàm để đảm bảo rằng hàm này **không thay đổi** bất kỳ thuộc tính nào của đối tượng.
+
+---
+
+#### **5. Phương thức setter cho thuộc tính `name`**
+
+```cpp
+void setName(string newName) {
+    name = newName;
+}
+```
+
+- **Giải thích**: Đây là **setter** - phương thức cho phép người dùng thay đổi giá trị của thuộc tính `name`. Bạn không thể truy cập và sửa đổi `name` trực tiếp, mà cần gọi phương thức này để thay đổi giá trị.
+- **Mục đích**: Kiểm soát việc thay đổi giá trị của thuộc tính `private`. Bạn có thể kiểm tra hoặc giới hạn giá trị mới trước khi gán.
+
+Ví dụ:
+```cpp
+student1.setName("Jane Smith");
+```
+- **Giải thích**: Phương thức này được gọi để thay đổi tên của đối tượng `student1` thành "Jane Smith".
+
+---
+
+#### **6. Phương thức `displayInfo`**
+
+```cpp
+void displayInfo() const {
+    cout << "Tên: " << name << ", Tuổi: " << age << endl;
+}
+```
+
+- **Giải thích**: Đây là một phương thức công khai để in ra thông tin của đối tượng `Student`, bao gồm tên và tuổi. Phương thức này sử dụng giá trị của các thuộc tính `name` và `age` để in ra màn hình.
+- **`const`**: Phương thức này không thay đổi giá trị của đối tượng nên được đánh dấu `const`.
+
+Ví dụ:
+```cpp
+student1.displayInfo();
+```
+- **Kết quả**:
+```
+Tên: John Doe, Tuổi: 20
+```
+- **Giải thích**: Khi gọi phương thức này, nó sẽ in ra thông tin của sinh viên hiện tại.
+
+---
+
+#### **7. Chương trình chính (`main`)**
+
+```cpp
+int main() {
+    // Tạo đối tượng Student
+    Student student1("John Doe", 20);
+    
+    // In thông tin ban đầu của đối tượng
+    student1.displayInfo();
+    
+    // Cập nhật tên của đối tượng
+    student1.setName("Jane Smith");
+    
+    // In thông tin sau khi cập nhật
+    student1.displayInfo();
+
+    return 0;
+}
+```
+
+- **Giải thích**: 
+   - **Tạo đối tượng `student1`**: Khi bạn tạo đối tượng `student1` với tên "John Doe" và tuổi 20, constructor sẽ được gọi để khởi tạo các giá trị này.
+   - **In thông tin**: Gọi phương thức `displayInfo` để in ra thông tin ban đầu của đối tượng.
+   - **Cập nhật tên**: Gọi phương thức `setName` để thay đổi tên từ "John Doe" thành "Jane Smith".
+   - **In lại thông tin**: Sau khi cập nhật, gọi lại `displayInfo` để in thông tin mới.
+
+---
+
+### **Tóm tắt các khái niệm quan trọng trong class:**
+1. **`private`**: Phần dữ liệu/thuộc tính bị ẩn, chỉ có thể truy cập thông qua các phương thức của class.
+2. **`public`**: Phần phương thức cho phép người dùng class truy cập hoặc thay đổi dữ liệu.
+3. **Constructor**: Phương thức đặc biệt được gọi khi một đối tượng được tạo ra, dùng để khởi tạo các giá trị.
+4. **Getter**: Phương thức công khai để lấy giá trị của một thuộc tính `private`.
+5. **Setter**: Phương thức công khai để thay đổi giá trị của một thuộc tính `private`.
+6. **`const`**: Đảm bảo rằng phương thức không thay đổi dữ liệu của đối tượng.
+7. **Phương thức `displayInfo`**: In ra thông tin của đối tượng.
+
+---
+
+### Bài tập thực hành:
+
+1. **Tạo một class `Car`**:
+   - Tạo các thuộc tính `private` như: `brand`, `model`, `year`.
+   - Tạo các phương thức getter và setter cho các thuộc tính này.
+   - Tạo phương thức `displayInfo` để in thông tin xe.
+   - Tạo đối tượng `Car` trong hàm `main` và thực hiện các thao tác cập nhật thông tin và in ra màn hình.
+
+Bạn có thể thực hiện bài tập này trước khi đi tiếp vào các phần nâng cao hơn như **kế thừa** và **đa hình** trong OOP.

@@ -1,0 +1,55 @@
+{
+  "C_Cpp_Runner.msvcBatchPath": "",
+  "C_Cpp_Runner.cCompilerPath": "gcc",
+  "C_Cpp_Runner.cppCompilerPath": "g++",
+  "C_Cpp_Runner.debuggerPath": "gdb",
+  "C_Cpp_Runner.cStandard": "c11",
+  "C_Cpp_Runner.cppStandard": "c++11",
+  "C_Cpp_Runner.useMsvc": false,
+  "C_Cpp_Runner.warnings": [
+    "-Wall",
+    "-Wextra",
+    "-Wpedantic",
+    "-Wshadow",
+    "-Wformat=2",
+    "-Wcast-align",
+    "-Wconversion",
+    "-Wsign-conversion",
+    "-Wnull-dereference"
+  ],
+  "C_Cpp_Runner.includePaths": [],
+  "C_Cpp_Runner.excludeSearch": [
+    "**/build",
+    "**/build/**",
+    "**/.*",
+    "**/.*/**",
+    "**/.vscode",
+    "**/.vscode/**"
+  ],
+  "cmake.sourceDirectory": "${workspaceFolder}",
+  "cmake.buildDirectory": "${workspaceFolder}/build",
+  "cmake.generator": "Unix Makefiles",
+  "cmake.configureArgs": [
+    "-DCMAKE_CXX_COMPILER=g++",
+    "-DCMAKE_C_COMPILER=gcc"
+  ],
+  "files.associations": {
+    "iostream": "cpp",
+    "ostream": "cpp"
+  },
+  "sqltools.connections": [
+    {
+      "mysqlOptions": {
+        "authProtocol": "default",
+        "enableSsl": "Disabled"
+      },
+      "previewLimit": 50,
+      "server": "localhost",
+      "port": 3306,
+      "driver": "MariaDB",
+      "name": "DATABASE",
+      "username": "Heizdoofent",
+      "database": "MY_STORE_APP"
+    }
+  ]
+}

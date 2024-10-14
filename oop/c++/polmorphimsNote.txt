@@ -1,0 +1,100 @@
+### **2. Đa hình (Polymorphism)**
+
+**Đa hình (Polymorphism)** là khả năng của một phương thức hoặc đối tượng có thể hoạt động theo nhiều cách khác nhau. Trong C++, đa hình chủ yếu được thực hiện thông qua **hàm ảo (virtual function)** và **ghi đè phương thức (method overriding)**.
+
+#### **Đa hình với hàm ảo**
+
+Ví dụ dưới đây minh họa cách sử dụng hàm ảo trong lớp cha để lớp con có thể định nghĩa lại cách hoạt động của phương thức này.
+
+```cpp
+#include <iostream>
+using namespace std;
+
+// Lớp cha Animal
+class Animal {
+public:
+    // Phương thức ảo để phát ra âm thanh
+    virtual void makeSound() const {
+        cout << "Animal sound" << endl;
+    }
+};
+
+// Lớp con Dog kế thừa từ Animal
+class Dog : public Animal {
+public:
+    // Ghi đè phương thức makeSound
+    void makeSound() const override {
+        cout << "Woof woof" << endl;
+    }
+};
+
+// Lớp con Cat kế thừa từ Animal
+class Cat : public Animal {
+public:
+    // Ghi đè phương thức makeSound
+    void makeSound() const override {
+        cout << "Meow meow" << endl;
+    }
+};
+
+int main() {
+    // Tạo đối tượng Animal, Dog, và Cat
+    Animal* animalPtr = new Animal();
+    Animal* dogPtr = new Dog();
+    Animal* catPtr = new Cat();
+
+    // Gọi phương thức makeSound trên các đối tượng
+    animalPtr->makeSound();  // Gọi từ lớp Animal
+    dogPtr->makeSound();     // Gọi từ lớp Dog (ghi đè)
+    catPtr->makeSound();     // Gọi từ lớp Cat (ghi đè)
+
+    // Giải phóng bộ nhớ
+    delete animalPtr;
+    delete dogPtr;
+    delete catPtr;
+
+    return 0;
+}
+```
+
+#### **Giải thích chi tiết về đa hình**:
+1. **Phương thức ảo (`virtual`)**:
+   - Phương thức `makeSound` trong lớp cha `Animal` được khai báo là `virtual`. Điều này có nghĩa là khi lớp con ghi đè phương thức này, phiên bản của lớp con sẽ được sử dụng thay vì phiên bản của lớp cha.
+   
+2. **Ghi đè phương thức (`override`)**:
+   - Cả lớp `Dog` và `Cat` đều ghi đè (override) phương thức `makeSound` để phát ra âm thanh khác nhau. Từ khóa `override` giúp trình biên dịch xác định rằng phương thức này đang ghi đè phương thức ảo từ lớp cha.
+
+3. **Đa hình động (Dynamic Polymorphism)**:
+   - Khi gọi `makeSound()` trên con trỏ `Animal*`, chương trình sẽ tự động quyết định gọi phiên bản của lớp con (Dog hoặc Cat) thay vì lớp cha.
+
+#### **Kết quả**:
+```
+Animal sound
+Woof woof
+Meow meow
+```
+
+#### **Bài tập 2: Thực hành đa hình**
+1. Tạo lớp cha `Shape` với phương thức ảo `draw()`.
+2. Tạo lớp con `Circle` và `Square` kế thừa từ `Shape`, mỗi lớp ghi đè phương thức `draw()` để in ra "Vẽ hình tròn" hoặc "Vẽ hình vuông".
+3. Tạo một mảng chứa các đối tượng `Shape*`, sau đó gọi phương thức `draw()` trên từng đối tượng trong mảng để thể hiện tính đa hình.
+
+---
+
+### **3. Bài tập tổng hợp**
+
+Để áp dụng cả hai khái niệm **kế thừa** và **đa hình**, hãy làm bài tập tổng hợp sau:
+
+#### **Bài tập 3: Quản lý nhân viên**
+1. Tạo lớp cha `Employee` với các thuộc tính như `name` và `salary`.
+2. Tạo lớp con `Manager` kế thừa từ `Employee` và thêm thuộc tính `bonus`.
+3. Tạo lớp con `Engineer` kế thừa từ `Employee` và thêm thuộc tính `specialization`.
+4. Ghi đè phương thức `calculatePay()` trong cả hai lớp con để tính lương dựa trên các thuộc tính riêng.
+5. Tạo một mảng chứa các đối tượng `Employee*`, sau đó sử dụng tính đa hình để tính và in ra lương của từng nhân viên.
+
+---
+
+### **Tóm tắt kiến thức quan trọng**
+2. **Đa hình (Polymorphism)**:
+   - Cung cấp khả năng linh hoạt để một phương thức có thể hoạt động khác nhau tùy vào lớp con nào đang sử dụng.
+   - Được thực hiện thông qua hàm ảo và ghi đè phương thức trong lớp con.

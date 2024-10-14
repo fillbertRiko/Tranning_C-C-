@@ -1,0 +1,163 @@
+LOP TRUU TUONG AbstractClass
+
+### **1. Định nghĩa Lớp Trừu Tượng (Abstract Class)**
+
+Lớp trừu tượng là một lớp mà:
+- **Không thể tạo đối tượng trực tiếp** từ nó.
+- Chứa ít nhất một phương thức **ảo thuần túy (pure virtual function)**, là phương thức không có định nghĩa trong lớp trừu tượng mà chỉ có tên và phải được **lớp con ghi đè**.
+
+Một phương thức ảo thuần túy được định nghĩa bằng cách thêm `= 0` vào khai báo phương thức.
+
+#### **Cú pháp của lớp trừu tượng:**
+```cpp
+class AbstractClass {
+public:
+    // Phương thức ảo thuần túy (pure virtual function)
+    virtual void pureVirtualMethod() const = 0;
+
+    // Destructor ảo (nếu cần)
+    virtual ~AbstractClass() {}
+};
+```
+
+---
+
+### **2. Tại sao sử dụng Lớp Trừu Tượng?**
+
+Lớp trừu tượng được sử dụng để:
+- **Định nghĩa giao diện chung**: Nó cung cấp một khuôn mẫu mà các lớp con phải tuân theo.
+- **Tạo ra một tầng trừu tượng**: Giúp quản lý các đối tượng của lớp con thông qua con trỏ tới lớp cha trừu tượng. Tính năng này rất quan trọng khi bạn muốn làm việc với **tính đa hình (polymorphism)**.
+- **Ép buộc các lớp con**: Lớp con **bắt buộc** phải cung cấp cài đặt cụ thể cho các phương thức ảo thuần túy.
+
+### **3. Ví dụ chi tiết về Lớp Trừu Tượng**
+
+#### **Tình huống thực tế:**
+Giả sử chúng ta cần xây dựng một hệ thống quản lý **phương tiện giao thông**. Tất cả các phương tiện đều có động cơ và có thể di chuyển, nhưng mỗi loại phương tiện (xe hơi, xe máy, máy bay) sẽ có cách khởi động và di chuyển khác nhau. Ta có thể sử dụng lớp trừu tượng `Vehicle` để định nghĩa hành vi chung mà tất cả các phương tiện đều có, nhưng cụ thể thì mỗi phương tiện sẽ tự cài đặt lại.
+
+```cpp
+#include <iostream>
+using namespace std;
+
+// Lớp trừu tượng Vehicle
+class Vehicle {
+public:
+    // Phương thức ảo thuần túy (pure virtual function)
+    virtual void startEngine() const = 0;  // Phương tiện phải có động cơ
+
+    virtual void move() const = 0;         // Phương tiện phải có khả năng di chuyển
+
+    // Destructor ảo để đảm bảo hủy đúng lớp con
+    virtual ~Vehicle() {}
+};
+
+// Lớp Car kế thừa từ Vehicle
+class Car : public Vehicle {
+public:
+    // Ghi đè phương thức startEngine
+    void startEngine() const override {
+        cout << "Car engine started" << endl;
+    }
+
+    // Ghi đè phương thức move
+    void move() const override {
+        cout << "Car is driving" << endl;
+    }
+};
+
+// Lớp Motorcycle kế thừa từ Vehicle
+class Motorcycle : public Vehicle {
+public:
+    // Ghi đè phương thức startEngine
+    void startEngine() const override {
+        cout << "Motorcycle engine started" << endl;
+    }
+
+    // Ghi đè phương thức move
+    void move() const override {
+        cout << "Motorcycle is riding" << endl;
+    }
+};
+
+int main() {
+    // Sử dụng con trỏ Vehicle để quản lý các loại phương tiện khác nhau
+    Vehicle* vehicles[2];
+
+    // Tạo đối tượng Car và Motorcycle
+    vehicles[0] = new Car();
+    vehicles[1] = new Motorcycle();
+
+    // Gọi phương thức startEngine và move thông qua con trỏ Vehicle
+    for (int i = 0; i < 2; i++) {
+        vehicles[i]->startEngine();
+        vehicles[i]->move();
+        cout << "----------------------" << endl;
+    }
+
+    // Giải phóng bộ nhớ
+    for (int i = 0; i < 2; i++) {
+        delete vehicles[i];
+    }
+
+    return 0;
+}
+```
+
+### **Giải thích chi tiết mã:**
+
+1. **Lớp trừu tượng `Vehicle`**:
+   - **Phương thức ảo thuần túy**: Cả `startEngine()` và `move()` đều là phương thức ảo thuần túy (`= 0`). Điều này có nghĩa là lớp `Vehicle` chỉ định nghĩa các hành vi cần thiết mà không cài đặt chúng, và yêu cầu lớp con phải ghi đè các phương thức này.
+   
+2. **Lớp `Car` và `Motorcycle`**:
+   - Cả hai lớp con đều kế thừa từ `Vehicle` và **bắt buộc phải ghi đè** các phương thức `startEngine()` và `move()`.
+
+3. **Tính đa hình**:
+   - Trong hàm `main()`, chúng ta sử dụng con trỏ kiểu `Vehicle*` để quản lý các đối tượng `Car` và `Motorcycle`. Khi gọi `startEngine()` và `move()`, các phương thức của lớp con sẽ được gọi nhờ vào tính đa hình.
+
+4. **Destructor ảo**:
+   - Lớp `Vehicle` có **destructor ảo** để đảm bảo khi ta xóa đối tượng `Vehicle*`, bộ nhớ của lớp con (`Car` và `Motorcycle`) cũng được giải phóng đúng cách.
+
+---
+
+### **4. Khi nào nên sử dụng Lớp Trừu Tượng?**
+
+Sử dụng lớp trừu tượng khi:
+- Bạn muốn **xác định một giao diện chung** cho các lớp con.
+- Bạn muốn **ép buộc các lớp con phải cài đặt** các phương thức ảo thuần túy.
+- Bạn cần sử dụng **tính đa hình** để làm việc với các đối tượng khác nhau nhưng có chung hành vi (phương thức).
+
+#### **Lợi ích của lớp trừu tượng:**
+- **Tái sử dụng mã nguồn**: Các lớp con có thể chia sẻ phương thức và thuộc tính chung của lớp cha trừu tượng.
+- **Cấu trúc rõ ràng**: Giúp định nghĩa rõ ràng các hành vi mà tất cả các lớp con phải tuân theo.
+- **Dễ mở rộng**: Khi cần thêm lớp mới, chỉ cần kế thừa từ lớp trừu tượng và triển khai các phương thức cần thiết.
+
+#### **Khi không nên sử dụng:**
+- Khi lớp không có ít nhất một phương thức ảo thuần túy, bạn có thể sử dụng một lớp cơ bản thông thường thay vì lớp trừu tượng.
+- Nếu bạn không có ý định sử dụng tính đa hình, thì lớp trừu tượng có thể không cần thiết.
+
+---
+
+### **5. Sự khác biệt giữa Lớp Trừu Tượng và Interface:**
+
+Mặc dù C++ không có khái niệm **interface** riêng biệt như các ngôn ngữ khác (như Java hoặc C#), bạn có thể sử dụng lớp trừu tượng để tạo ra hành vi giống như interface. Sự khác biệt chính là:
+- **Interface**: Trong một số ngôn ngữ như Java, interface chỉ chứa các phương thức ảo thuần túy, không có bất kỳ thuộc tính hay phương thức cài đặt nào.
+- **Lớp trừu tượng**: Trong C++, lớp trừu tượng có thể chứa cả **phương thức ảo thuần túy** và **phương thức đã được cài đặt**, cũng như có thể chứa **thuộc tính**.
+
+---
+
+### **6. Bài tập thực hành**
+
+#### **Bài tập 1: Quản lý động vật**
+1. Tạo một lớp trừu tượng `Animal` với hai phương thức ảo thuần túy `makeSound()` và `move()`.
+2. Tạo hai lớp con `Dog` và `Bird` kế thừa từ `Animal`. Mỗi lớp sẽ ghi đè các phương thức này.
+   - `Dog`: `makeSound()` in ra "Woof Woof", `move()` in ra "Run".
+   - `Bird`: `makeSound()` in ra "Chirp Chirp", `move()` in ra "Fly".
+3. Tạo mảng chứa các đối tượng `Animal*` và gọi phương thức `makeSound()` và `move()`.
+
+#### **Bài tập 2: Quản lý hình học**
+1. Tạo một lớp trừu tượng `Shape` với các phương thức ảo thuần túy `draw()` và `calculateArea()`.
+2. Tạo hai lớp con `Circle` và `Square` kế thừa từ `Shape`. Mỗi lớp sẽ cài đặt phương thức `draw()` và `calculateArea()`.
+   - `Circle`: Tính diện tích theo công thức π * r^2.
+   - `Square`: Tính diện tích theo công thức a * a (với a là độ dài cạnh).
+3. Tạo một mảng chứa các
+
+ đối tượng `Shape*` và gọi phương thức `draw()` và `calculateArea()`.

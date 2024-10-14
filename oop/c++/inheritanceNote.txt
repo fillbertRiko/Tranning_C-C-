@@ -1,0 +1,94 @@
+
+### **1. Kế thừa (Inheritance)**
+
+**Kế thừa (Inheritance)** là một tính năng quan trọng trong lập trình hướng đối tượng, cho phép một lớp (class) mới **kế thừa** các thuộc tính và phương thức từ một lớp khác. Lớp cha (base class) cung cấp nền tảng cho lớp con (derived class), giúp **tái sử dụng mã nguồn** và **mở rộng chức năng**.
+
+#### **Cấu trúc kế thừa**
+
+```cpp
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+// Định nghĩa lớp cha Person
+class Person {
+protected:         // Thuộc tính protected (Có thể truy cập từ lớp con)
+    string name;
+    int age;
+
+public:
+    // Constructor của lớp Person
+    Person(string personName, int personAge) {
+        name = personName;
+        age = personAge;
+    }
+
+    // Phương thức in thông tin của lớp Person
+    void displayInfo() const {
+        cout << "Tên: " << name << ", Tuổi: " << age << endl;
+    }
+};
+
+// Định nghĩa lớp con Student kế thừa từ Person
+class Student : public Person {
+private:
+    string school;
+
+public:
+    // Constructor của lớp Student
+    Student(string studentName, int studentAge, string studentSchool)
+        : Person(studentName, studentAge) {  // Gọi constructor của lớp cha
+        school = studentSchool;
+    }
+
+    // Phương thức in thông tin của lớp Student
+    void displayStudentInfo() const {
+        displayInfo();  // Gọi phương thức của lớp cha
+        cout << "Trường: " << school << endl;
+    }
+};
+
+int main() {
+    // Tạo đối tượng Student
+    Student student1("John Doe", 20, "Harvard University");
+    
+    // In thông tin sinh viên
+    student1.displayStudentInfo();
+    
+    return 0;
+}
+```
+
+#### **Giải thích chi tiết về kế thừa**:
+- **Lớp cha `Person`**:
+  - **Thuộc tính `name` và `age`**: Được khai báo là `protected`, tức là chỉ có thể truy cập trực tiếp từ bên trong lớp `Person` và lớp con `Student`.
+  - **Constructor của `Person`**: Được sử dụng để khởi tạo giá trị cho các thuộc tính `name` và `age`.
+  - **Phương thức `displayInfo`**: In ra tên và tuổi, có thể gọi từ lớp con vì nó là `public`.
+  
+- **Lớp con `Student`**:
+  - **Kế thừa `Person`**: Lớp `Student` kế thừa tất cả các thuộc tính và phương thức của lớp `Person`.
+  - **Constructor của `Student`**: Gọi constructor của lớp cha `Person` để khởi tạo `name` và `age`, sau đó khởi tạo thêm thuộc tính `school`.
+  - **Phương thức `displayStudentInfo`**: Gọi phương thức `displayInfo` của lớp cha để in tên và tuổi, sau đó in thêm thông tin trường học.
+
+#### **Kết quả**:
+```
+Tên: John Doe, Tuổi: 20
+Trường: Harvard University
+```
+
+#### **Bài tập 1: Thực hành kế thừa**
+1. Tạo lớp `Car` với thuộc tính `brand`, `model`, và `year`.
+2. Tạo lớp `ElectricCar` kế thừa từ `Car`, thêm thuộc tính `batteryCapacity`.
+3. Viết phương thức để in thông tin đầy đủ về xe điện, bao gồm các thuộc tính của lớp cha.
+
+---
+
+### **Tóm tắt kiến thức quan trọng**
+
+1. **Kế thừa (Inheritance)**:
+   - Giúp tái sử dụng mã nguồn, chia sẻ các thuộc tính và phương thức từ lớp cha sang lớp con.
+   - Cho phép lớp con mở rộng hoặc ghi đè các chức năng của lớp cha.
+
+
+---

@@ -1,0 +1,234 @@
+Chúng ta sẽ tiếp tục với **đa kế thừa (multiple inheritance)** trong C++, một khái niệm mạnh mẽ nhưng cũng phức tạp. Trong C++, một lớp có thể kế thừa từ **nhiều lớp cha**. Điều này mang lại khả năng tái sử dụng mã nguồn, nhưng cũng dẫn đến một số vấn đề tiềm ẩn như **Diamond Problem**. Hãy bắt đầu với một cái nhìn chi tiết về **đa kế thừa**, cách nó hoạt động, những lợi ích và thách thức khi sử dụng nó.
+
+---
+
+### **1. Đa kế thừa là gì?**
+
+**Đa kế thừa** cho phép một lớp kế thừa từ **nhiều hơn một lớp cha**. Điều này có nghĩa là lớp con có thể thừa hưởng thuộc tính và phương thức từ nhiều lớp cha cùng lúc. Trong C++, đa kế thừa được thực hiện rất dễ dàng bằng cách khai báo nhiều lớp cha trong phần định nghĩa lớp con.
+
+#### **Cú pháp đa kế thừa:**
+
+```cpp
+class ClassName : public BaseClass1, public BaseClass2 {
+    // Thành viên và phương thức của ClassName
+};
+```
+
+### **2. Ví dụ đơn giản về đa kế thừa**
+
+Giả sử chúng ta có hai lớp `Person` và `Worker`. Một lớp con `Manager` sẽ kế thừa từ cả hai lớp cha này. `Person` chứa thông tin cá nhân, và `Worker` chứa thông tin về công việc.
+
+```cpp
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+// Lớp Person (thông tin cá nhân)
+class Person {
+protected:
+    string name;
+    int age;
+
+public:
+    Person(string personName, int personAge) : name(personName), age(personAge) {}
+
+    void displayPersonInfo() const {
+        cout << "Name: " << name << ", Age: " << age << endl;
+    }
+};
+
+// Lớp Worker (thông tin công việc)
+class Worker {
+protected:
+    string company;
+    float salary;
+
+public:
+    Worker(string workerCompany, float workerSalary) : company(workerCompany), salary(workerSalary) {}
+
+    void displayWorkInfo() const {
+        cout << "Company: " << company << ", Salary: " << salary << endl;
+    }
+};
+
+// Lớp Manager kế thừa từ cả Person và Worker
+class Manager : public Person, public Worker {
+private:
+    int teamSize;
+
+public:
+    Manager(string managerName, int managerAge, string managerCompany, float managerSalary, int managerTeamSize)
+        : Person(managerName, managerAge), Worker(managerCompany, managerSalary), teamSize(managerTeamSize) {}
+
+    void displayManagerInfo() const {
+        displayPersonInfo();  // Gọi phương thức từ lớp Person
+        displayWorkInfo();    // Gọi phương thức từ lớp Worker
+        cout << "Team Size: " << teamSize << endl;
+    }
+};
+
+int main() {
+    // Tạo đối tượng Manager
+    Manager manager1("John Doe", 35, "TechCorp", 75000, 10);
+
+    // Hiển thị thông tin của Manager
+    manager1.displayManagerInfo();
+
+    return 0;
+}
+```
+
+### **Giải thích chi tiết về đa kế thừa:**
+
+1. **Lớp `Person`**:
+   - Lớp này chứa các thông tin cá nhân như tên và tuổi.
+   - Phương thức `displayPersonInfo()` để in thông tin cá nhân.
+
+2. **Lớp `Worker`**:
+   - Lớp này chứa các thông tin liên quan đến công việc như công ty và mức lương.
+   - Phương thức `displayWorkInfo()` để in thông tin công việc.
+
+3. **Lớp `Manager`**:
+   - `Manager` kế thừa từ cả hai lớp `Person` và `Worker`. Điều này cho phép `Manager` thừa hưởng tất cả các thuộc tính và phương thức từ cả hai lớp.
+   - Lớp `Manager` thêm thuộc tính mới là `teamSize` (kích thước đội ngũ).
+   - Phương thức `displayManagerInfo()` gọi cả phương thức của lớp `Person` và `Worker` để in đầy đủ thông tin về một người quản lý.
+
+#### **Kết quả khi chạy chương trình:**
+
+```
+Name: John Doe, Age: 35
+Company: TechCorp, Salary: 75000
+Team Size: 10
+```
+
+---
+
+### **3. Lợi ích và thách thức của đa kế thừa**
+
+#### **Lợi ích**:
+1. **Tái sử dụng mã nguồn**: Một lớp con có thể tái sử dụng thuộc tính và phương thức từ nhiều lớp cha khác nhau.
+2. **Tạo ra sự linh hoạt**: Đa kế thừa cho phép lớp con kết hợp chức năng từ nhiều lớp cha, tạo ra những đối tượng phức tạp và đa dạng hơn.
+
+#### **Thách thức**:
+1. **Phức tạp trong quản lý**: Khi một lớp con kế thừa từ nhiều lớp cha, mã nguồn trở nên phức tạp hơn, khó bảo trì hơn, và dễ dẫn đến lỗi hơn.
+2. **Diamond Problem**: Khi cả hai lớp cha đều kế thừa từ cùng một lớp gốc, lớp con cuối cùng có thể nhận được nhiều bản sao của cùng một lớp cha gốc. Điều này gây ra sự **mơ hồ** và khó khăn trong việc quản lý kế thừa.
+
+---
+
+### **4. Vấn đề Diamond Problem trong đa kế thừa**
+
+#### **Mô tả Diamond Problem:**
+
+Hãy tưởng tượng một tình huống trong đó lớp `A` là lớp cha gốc, lớp `B` và lớp `C` kế thừa từ lớp `A`, và lớp `D` kế thừa từ cả `B` và `C`. Khi đó, `D` có thể nhận được hai bản sao của lớp `A` - một từ `B` và một từ `C`. Điều này gây ra vấn đề **Diamond Problem**.
+
+#### **Ví dụ về Diamond Problem:**
+
+```cpp
+#include <iostream>
+using namespace std;
+
+// Lớp cha gốc A
+class A {
+public:
+    void display() const {
+        cout << "Class A" << endl;
+    }
+};
+
+// Lớp B kế thừa từ A
+class B : public A {};
+
+// Lớp C kế thừa từ A
+class C : public A {};
+
+// Lớp D kế thừa từ cả B và C
+class D : public B, public C {};
+
+int main() {
+    D objD;
+    
+    // Gọi phương thức display từ lớp D
+    // objD.display();  // Lỗi: không biết nên gọi display() từ B hay từ C
+
+    return 0;
+}
+```
+
+#### **Vấn đề**:
+- Khi chúng ta cố gắng gọi `objD.display()`, trình biên dịch sẽ không biết nên gọi phương thức `display()` từ lớp `B` hay lớp `C`, vì cả hai lớp đều kế thừa từ `A`.
+- Đây là **Diamond Problem**: Một lớp con có thể nhận được nhiều bản sao của cùng một lớp cha, gây ra mâu thuẫn.
+
+---
+
+### **5. Cách giải quyết Diamond Problem: Sử dụng `virtual` inheritance**
+
+C++ cung cấp cách giải quyết **Diamond Problem** bằng cách sử dụng **kế thừa ảo (virtual inheritance)**. Khi bạn kế thừa ảo từ một lớp, chỉ có **một bản sao** của lớp đó sẽ được thừa hưởng, dù lớp con kế thừa từ nhiều lớp cha trung gian.
+
+#### **Cách sử dụng `virtual inheritance`:**
+
+```cpp
+#include <iostream>
+using namespace std;
+
+// Lớp cha gốc A
+class A {
+public:
+    void display() const {
+        cout << "Class A" << endl;
+    }
+};
+
+// Lớp B kế thừa ảo từ A
+class B : virtual public A {};
+
+// Lớp C kế thừa ảo từ A
+class C : virtual public A {};
+
+// Lớp D kế thừa từ cả B và C
+class D : public B, public C {};
+
+int main() {
+    D objD;
+    
+    // Gọi phương thức display từ lớp A (chỉ có một bản sao của A)
+    objD.display();  // Không còn mơ hồ, gọi chính xác từ A
+
+    return 0;
+}
+```
+
+#### **Giải thích về `virtual inheritance`:**
+1. **Kế thừa ảo**: Khi bạn kế thừa từ lớp `A` bằng từ khóa `virtual`, chỉ có **một bản sao** của `A` sẽ được lưu trong lớp con cuối cùng (`D`), bất kể nó kế thừa từ `B` hay `C`.
+2. **Giải quyết mơ hồ**: Với kế thừa ảo, trình biên dịch sẽ không còn mơ hồ khi gọi phương thức `display()` từ `A` trong lớp `D`.
+
+#### **Kết quả khi chạy chương trình:**
+
+```
+Class A
+```
+
+---
+
+### **6. Tổng kết về Đa kế thừa**
+
+- **Đa kế thừa** trong C++ cho phép một lớp kế thừa từ nhiều lớp cha, mang lại tính linh hoạt và tái sử dụng mã nguồn.
+- **Vấn đề Diamond Problem** là thách thức khi một lớp con kế thừa nhiều bản sao của cùng một lớp cha thông qua các lớp trung gian.
+- **Kế thừa ảo (virtual inheritance)** là cách giải quyết Diamond Problem, đảm bảo rằng chỉ có một bản sao của lớp cha được thừa hưởng.
+
+---
+
+### **7
+
+. Bài tập thực hành về Đa kế thừa**
+
+#### **Bài tập 1: Quản lý động vật và nhân viên sở thú**
+1. Tạo lớp `Animal` với phương thức `makeSound()`.
+2. Tạo lớp `Employee` với phương thức `work()`.
+3. Tạo lớp `ZooKeeper` kế thừa từ cả `Animal` và `Employee`, và cho phép nhân viên sở thú có thể vừa làm việc vừa chăm sóc động vật.
+
+#### **Bài tập 2: Quản lý hình học với Diamond Problem**
+1. Tạo lớp `Shape` với phương thức `draw()`.
+2. Tạo lớp `Color` với phương thức `fillColor()`.
+3. Tạo hai lớp `ColoredShape` và `TexturedShape` kế thừa từ cả `Shape` và `Color`.
+4. Sử dụng kế thừa ảo để giải quyết Diamond Problem nếu có.

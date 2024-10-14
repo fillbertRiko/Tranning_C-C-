@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1718211699 source:/media/duonghuy/New Volume/C++/codeBlock/KiemTraSoNguyenTo/main.c
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+	<stdbool.h>
+

@@ -1,0 +1,3 @@
+/media/dang-duong-huy/New Volume/C++/build/CMakeFiles/my_executable.dir
+/media/dang-duong-huy/New Volume/C++/build/CMakeFiles/edit_cache.dir
+/media/dang-duong-huy/New Volume/C++/build/CMakeFiles/rebuild_cache.dir

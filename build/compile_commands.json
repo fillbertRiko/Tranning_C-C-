@@ -1,0 +1,8 @@
+[
+{
+  "directory": "/media/dang-duong-huy/New Volume/C++/build",
+  "command": "/usr/bin/g++   -g -std=gnu++11 -o CMakeFiles/my_executable.dir/main.cpp.o -c \"/media/dang-duong-huy/New Volume/C++/main.cpp\"",
+  "file": "/media/dang-duong-huy/New Volume/C++/main.cpp",
+  "output": "CMakeFiles/my_executable.dir/main.cpp.o"
+}
+]

@@ -1,0 +1,47 @@
+bai1:
+You must review a clash of code to see if it is great, good or bad.
+
+You will be given 6 lines that contain the contribution_name, upvotes, downvotes, corrections_offered, corrections_made, and duration respectively.
+
+POSITIVELY-VOTED CONTRIBUTIONS are found when the number of upvotes is greater than the number of downvotes.
+
+WELL-CHECKED CONTRIBUTIONS are found when the number of corrections_made are EQUAL TO the number of corrections_offered. The number of corrections_made and corrections_offered must be greater than zero.
+
+EASILY-SOLVABLE CONTRIBUTIONS are found when the average duration it takes to solve is from 0 to 15 minutes max.
+
+If a contribution fits all three criteria, then the output should be Great Contribution, Approved!.
+
+If a contribution fits only two of the criteria, then the output should be Good Contribution, Approved!.
+
+If a contribution fits only one or none of the criteria, then the output should be Bad Contribution, Rejected!.
+
+#Any connection to other coders contributions (except my own) is entirely coincidental.
+Input
+Line 1: A string which is the contribution_name.
+Line 2: An integer which is the number of upvotes.
+Line 3: An integer which is the number of downvotes.
+Line 4: An integer representing the number of corrections_offered.
+Line 5: An integer representing the number of corrections_made.
+Line 6: An integer representing the duration, in minutes, of the average time taken to solve.
+Output
+Line 1: One of the following: Great Contribution, Approved!, Good Contribution, Approved! or Bad Contribution, Rejected!.
+Constraints
+0 < length of contribution_name < 50
+0 <= upvotes <= 40
+0 <= downvotes <= 40
+0 <= corrections_made <= corrections_offered <= 20
+0 minutes < duration <= 180 minutes (3 hours)
+Example
+----------------
+Input
+Check the Contribution before Approving!
+0
+0
+0
+0
+12
+------------------
+Output
+Bad Contribution, Rejected!
+
+===========================================================================================
