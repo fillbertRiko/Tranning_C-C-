@@ -1,0 +1,15 @@
+D:\C++\caiDatCTLT\bai05\bin\Debug\net8.0\bai05.exe
+D:\C++\caiDatCTLT\bai05\bin\Debug\net8.0\bai05.deps.json
+D:\C++\caiDatCTLT\bai05\bin\Debug\net8.0\bai05.runtimeconfig.json
+D:\C++\caiDatCTLT\bai05\bin\Debug\net8.0\bai05.dll
+D:\C++\caiDatCTLT\bai05\bin\Debug\net8.0\bai05.pdb
+D:\C++\caiDatCTLT\bai05\obj\Debug\net8.0\bai05.GeneratedMSBuildEditorConfig.editorconfig
+D:\C++\caiDatCTLT\bai05\obj\Debug\net8.0\bai05.AssemblyInfoInputs.cache
+D:\C++\caiDatCTLT\bai05\obj\Debug\net8.0\bai05.AssemblyInfo.cs
+D:\C++\caiDatCTLT\bai05\obj\Debug\net8.0\bai05.csproj.CoreCompileInputs.cache
+D:\C++\caiDatCTLT\bai05\obj\Debug\net8.0\bai05.sourcelink.json
+D:\C++\caiDatCTLT\bai05\obj\Debug\net8.0\bai05.dll
+D:\C++\caiDatCTLT\bai05\obj\Debug\net8.0\refint\bai05.dll
+D:\C++\caiDatCTLT\bai05\obj\Debug\net8.0\bai05.pdb
+D:\C++\caiDatCTLT\bai05\obj\Debug\net8.0\bai05.genruntimeconfig.cache
+D:\C++\caiDatCTLT\bai05\obj\Debug\net8.0\ref\bai05.dll
