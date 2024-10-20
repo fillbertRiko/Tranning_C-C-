@@ -1,0 +1,41 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\C\u002B\u002B\\caiDatCTLT\\bai09.cpp\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{BA67667D-EAF2-4725-8491-A9E7A4935046}|bai09.cpp.vcxproj|D:\\C\u002B\u002B\\caiDatCTLT\\bai09.cpp\\bai09.cpp.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{BA67667D-EAF2-4725-8491-A9E7A4935046}|bai09.cpp.vcxproj|solutionrelative:bai09.cpp.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "bai09.cpp.cpp",
+              "DocumentMoniker": "D:\\C\u002B\u002B\\caiDatCTLT\\bai09.cpp\\bai09.cpp.cpp",
+              "RelativeDocumentMoniker": "bai09.cpp.cpp",
+              "ToolTip": "D:\\C\u002B\u002B\\caiDatCTLT\\bai09.cpp\\bai09.cpp.cpp*",
+              "RelativeToolTip": "bai09.cpp.cpp*",
+              "ViewState": "AgIAABYAAAAAAAAAAAAcwCsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-10-15T08:00:33.47Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
