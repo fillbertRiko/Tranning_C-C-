@@ -1,0 +1,10 @@
+D:\C++\btvn\Test\bin\Debug\Test.exe.config
+D:\C++\btvn\Test\bin\Debug\Test.exe
+D:\C++\btvn\Test\bin\Debug\Test.pdb
+D:\C++\btvn\Test\obj\Debug\Test.csproj.AssemblyReference.cache
+D:\C++\btvn\Test\obj\Debug\Test.Form1.resources
+D:\C++\btvn\Test\obj\Debug\Test.Properties.Resources.resources
+D:\C++\btvn\Test\obj\Debug\Test.csproj.GenerateResource.cache
+D:\C++\btvn\Test\obj\Debug\Test.csproj.CoreCompileInputs.cache
+D:\C++\btvn\Test\obj\Debug\Test.exe
+D:\C++\btvn\Test\obj\Debug\Test.pdb
